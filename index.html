@@ -259,6 +259,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/Java自动装箱及关键字/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jinxiangyuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jinxiangyuansff">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/03/Java自动装箱及关键字/" itemprop="url">自动装箱&关键字&equals</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-03T14:43:00+08:00">
+                2019-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="自动装拆箱demo及作用-equals-amp-hashcode-this-amp-static-amp-final关键字"><a href="#自动装拆箱demo及作用-equals-amp-hashcode-this-amp-static-amp-final关键字" class="headerlink" title="自动装拆箱demo及作用 equals&amp;hashcode this&amp;static&amp;final关键字"></a>自动装拆箱demo及作用 equals&amp;hashcode this&amp;static&amp;final关键字</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/03/Java自动装箱及关键字/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/关于树的中序遍历应用及心得/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,39 +497,16 @@
 
       
         
-          
-            <p>##</p>
-<h2 id="中序遍历思想及解题思路"><a href="#中序遍历思想及解题思路" class="headerlink" title="中序遍历思想及解题思路"></a>中序遍历思想及解题思路</h2><h3 id="涉及题目（lc501-lc653-lc530-lc109）"><a href="#涉及题目（lc501-lc653-lc530-lc109）" class="headerlink" title="涉及题目（lc501 lc653 lc530 lc109）"></a>涉及题目（lc501 lc653 lc530 lc109）</h3><blockquote>
+          <h2 id="中序遍历思想及解题思路"><a href="#中序遍历思想及解题思路" class="headerlink" title="中序遍历思想及解题思路"></a>中序遍历思想及解题思路</h2><h3 id="涉及题目（lc501-lc653-lc530-lc109）"><a href="#涉及题目（lc501-lc653-lc530-lc109）" class="headerlink" title="涉及题目（lc501 lc653 lc530 lc109）"></a>涉及题目（lc501 lc653 lc530 lc109）</h3><blockquote>
 <p>中序遍历<strong>二叉搜索树</strong>能够依次按顺序输出有序数组，利用这一思想可以解决很多算法问题   、</p>
 </blockquote>
-<p>&lt; !–more–&gt; </p>
-<h3 id="leetcode501（easy）"><a href="#leetcode501（easy）" class="headerlink" title="leetcode501（easy）"></a>leetcode501（easy）</h3><blockquote>
-<p>题目描述：寻找二叉搜索树中出现最多的值，注意有可能不止一个值  </p>
-<blockquote>
-<p>思路：通过中序遍历得到有序数组这一特性用一个arraylist存放存在最多的值，然后用一个整形数组返回。</p>
-</blockquote>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> curCnt=<span class="number">1</span>,MaxCnt=<span class="number">1</span>;</span><br><span class="line">     <span class="keyword">private</span> TreeNode pre=<span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] findMode(TreeNode root) &#123;</span><br><span class="line">       List&lt;Integer&gt; nums= <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Order(root,nums);</span><br><span class="line">        <span class="keyword">int</span>[] ret=<span class="keyword">new</span> <span class="keyword">int</span>[nums.size()];</span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:nums)</span><br><span class="line">        &#123;</span><br><span class="line">            ret[j++]=i;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span>  ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span>  <span class="keyword">void</span> <span class="title">Order</span><span class="params">(TreeNode root,List&lt;Integer&gt; nums)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> ;</span><br><span class="line">       Order(root.left,nums);</span><br><span class="line">       <span class="keyword">if</span>(pre!=<span class="keyword">null</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span>(pre.val==root.val)curCnt++;</span><br><span class="line">           <span class="keyword">else</span> curCnt=<span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(MaxCnt&lt;curCnt)</span><br><span class="line">       &#123;  MaxCnt=curCnt;</span><br><span class="line">           nums.clear();</span><br><span class="line">           nums.add(root.val);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(MaxCnt==curCnt)</span><br><span class="line">       &#123;</span><br><span class="line">           nums.add(root.val);</span><br><span class="line">       &#125;</span><br><span class="line">         pre=root;    <span class="comment">//  先进行左节点遍历再赋值给pre，如果先赋值会导致少了一次操作</span></span><br><span class="line">         Order(root.right,nums);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line">## leetcode653（easy）</span><br><span class="line"></span><br><span class="line">&gt; 题目描述：在BST中查找两个节点，是他们的和为一个定值。</span><br><span class="line">&gt; &gt; 解题思路：利用中序遍历使BST成为有序数组这一特性。把BST放入一个数组中，然后利用双指针找到值，返回<span class="keyword">true</span> 找不到值就返回<span class="keyword">false</span></span><br><span class="line"> </span><br><span class="line"> ```java</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findTarget</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">     List&lt;Integer&gt; nums = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      toList(root, nums);</span><br><span class="line">      <span class="keyword">int</span> i=<span class="number">0</span>,j=nums.size()-<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span>(k==nums.get(i)+nums.get(j))<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">if</span>(k&lt;nums.get(i)+nums.get(j))j--;</span><br><span class="line">          <span class="keyword">else</span> i++;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">toList</span><span class="params">(TreeNode root,List&lt;Integer&gt; nums)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> ;</span><br><span class="line">         toList(root.left, nums);</span><br><span class="line">         nums.add(root.val);</span><br><span class="line">         toList(root.right, nums);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="leetcode530"><a href="#leetcode530" class="headerlink" title="leetcode530"></a>leetcode530</h3><blockquote>
-<p>题目描述：在二叉查找树中查找两节点差值最小的绝对值</p>
-<blockquote>
-<p>解题思路：利用中序遍历使BST得出有序，两个相减得出最小值</p>
-</blockquote>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span>  <span class="keyword">int</span> min =Integer.MAX_VALUE; </span><br><span class="line">   <span class="keyword">private</span>  TreeNode pre =<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMinimumDifference</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">       getMin(root);</span><br><span class="line">       <span class="keyword">return</span> min;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getMin</span><span class="params">(TreeNode root)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="keyword">null</span>)<span class="keyword">return</span> ;</span><br><span class="line">     getMin(root.left);</span><br><span class="line">     <span class="keyword">if</span>(pre!=<span class="keyword">null</span>)</span><br><span class="line">      min=Math.min(min, root.val-pre.val);</span><br><span class="line">     pre=root;</span><br><span class="line">     getMin(root.right); </span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="leetcode109"><a href="#leetcode109" class="headerlink" title="leetcode109"></a>leetcode109</h3><blockquote>
-<p>题目描述：根据有序链表构建BST</p>
-<blockquote>
-<p>解题思路：得到链表中间值的前一个，原因是方便递归。然后用递归得到BST</p>
-</blockquote>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ListNode pre=<span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">sortedListToBST</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">         pre=toPreMid(head);</span><br><span class="line">          <span class="keyword">if</span>(pre.next==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">new</span> TreeNode(pre.val);</span><br><span class="line">          ListNode mid = pre.next;</span><br><span class="line">          pre.next=<span class="keyword">null</span>;</span><br><span class="line">          TreeNode root=<span class="keyword">new</span> TreeNode(mid.val);</span><br><span class="line">          root.left=sortedListToBST(head);</span><br><span class="line">          root.right=sortedListToBST(mid.next);</span><br><span class="line">           <span class="keyword">return</span> root;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">toPreMid</span><span class="params">(ListNode head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;    </span><br><span class="line">          <span class="keyword">if</span>(head==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">         ListNode pre = head,slow=head,fast=head.next;</span><br><span class="line">         </span><br><span class="line">         <span class="keyword">while</span>(fast!=<span class="keyword">null</span>&amp;&amp;fast.next!=<span class="keyword">null</span>)</span><br><span class="line">         &#123;</span><br><span class="line">             pre=slow; <span class="comment">// 先赋值 所以是前一个</span></span><br><span class="line">             slow=slow.next;</span><br><span class="line">             fast=fast.next.next;</span><br><span class="line">         &#125;   </span><br><span class="line">       <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><center>总结</center></h3><p>中序遍历能使BST得到有序数组。需要注意的是lc501 lc109都涉及到了pre指针 需要先进行中序遍历 再得到pre 不然会出错</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/30/关于树的中序遍历应用及心得/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -725,7 +848,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +859,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -747,7 +870,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
