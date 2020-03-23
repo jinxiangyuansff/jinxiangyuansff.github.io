@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="epoll,redis,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="在校大三Java后台">
+<meta name="description" content="Redis为什么这么快？有几个原因：  1.完全基于内存操作，而且是key-val型数据库，所以redis操作的速度十分快速，就相当于HashMap的查询在接近O（1）一样。  2.redis数据结构简单，又专门为redis而设计优化过的的数据结构。  3.因为redis是完全基于内存操作的，所以cpu不是redis的瓶颈，所以redis可以使用单线程，再加上一个IO多路复用模型与处理并发任务，这">
+<meta name="keywords" content="epoll,redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://yoursite.com/2019/09/29/关于我/index.html">
+<meta property="og:title" content="解析redisIO模型与epoll">
+<meta property="og:url" content="http://yoursite.com/2020/03/23/解析redisIO模型与epoll/index.html">
 <meta property="og:site_name" content="jinxiangyuansff">
-<meta property="og:description" content="在校大三Java后台">
+<meta property="og:description" content="Redis为什么这么快？有几个原因：  1.完全基于内存操作，而且是key-val型数据库，所以redis操作的速度十分快速，就相当于HashMap的查询在接近O（1）一样。  2.redis数据结构简单，又专门为redis而设计优化过的的数据结构。  3.因为redis是完全基于内存操作的，所以cpu不是redis的瓶颈，所以redis可以使用单线程，再加上一个IO多路复用模型与处理并发任务，这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-29T09:26:03.606Z">
+<meta property="og:updated_time" content="2020-03-23T16:16:27.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="在校大三Java后台">
+<meta name="twitter:title" content="解析redisIO模型与epoll">
+<meta name="twitter:description" content="Redis为什么这么快？有几个原因：  1.完全基于内存操作，而且是key-val型数据库，所以redis操作的速度十分快速，就相当于HashMap的查询在接近O（1）一样。  2.redis数据结构简单，又专门为redis而设计优化过的的数据结构。  3.因为redis是完全基于内存操作的，所以cpu不是redis的瓶颈，所以redis可以使用单线程，再加上一个IO多路复用模型与处理并发任务，这">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/29/关于我/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/23/解析redisIO模型与epoll/">
 
 
 
 
 
-  <title>关于我 | jinxiangyuansff</title>
+  <title>解析redisIO模型与epoll | jinxiangyuansff</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/关于我/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/解析redisIO模型与epoll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="jinxiangyuan">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于我</h1>
+          <h1 class="post-title" itemprop="name headline">解析redisIO模型与epoll</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-29T17:19:00+08:00">
-                2019-09-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-23T23:29:00+08:00">
+                2020-03-23
               </time>
             
 
@@ -301,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,7 +352,11 @@
       
 
       
-        <p>在校大三Java后台</p>
+        <h3 id="Redis为什么这么快？有几个原因："><a href="#Redis为什么这么快？有几个原因：" class="headerlink" title="Redis为什么这么快？有几个原因："></a>Redis为什么这么快？有几个原因：</h3><p>  1.完全基于内存操作，而且是key-val型数据库，所以redis操作的速度十分快速，就相当于HashMap的查询在接近O（1）一样。<br>  2.redis数据结构简单，又专门为redis而设计优化过的的数据结构。<br>  3.因为redis是完全基于内存操作的，所以cpu不是redis的瓶颈，所以redis可以使用单线程，再加上一个IO多路复用模型与处理并发任务，这样的话能避免多线程同步已经线程上下文的开销，提高了性能。<br>  4.redis是基于C语言实现的，C语言跟操作系统底层更接近，所以效率会更快，并且redis有实现自己的一套VM机制。</p>
+<h3 id="redis处理客户端socket连接过程"><a href="#redis处理客户端socket连接过程" class="headerlink" title="redis处理客户端socket连接过程"></a>redis处理客户端socket连接过程</h3><p> redis通过IO多路复用程序进行对客户端的socket进行监听，当有事件到达时，IO多路复用程序就会把事件交给redis的文件事件分派器。文件事件分派器再把事件交给对应的事件处理器处理，最后再把结果返回给客户端。</p>
+<h3 id="IO多路复用程序的底层：epoll"><a href="#IO多路复用程序的底层：epoll" class="headerlink" title="IO多路复用程序的底层：epoll"></a>IO多路复用程序的底层：epoll</h3><p> Epoll是IO多路复用的一种实现方式，其他的有比如select,poll。</p>
+<h4 id="select和poll的缺点："><a href="#select和poll的缺点：" class="headerlink" title="select和poll的缺点："></a>select和poll的缺点：</h4><p> 1.select的文件描述符fd最多只能向内核发送1024，所以select最多只能支持1024个连接。<br> 2.select和poll每次都要把fd集合从用户态拷贝到内核态，当fd数量很大时开销是很大的。<br> 3.在内核态同样要遍历一次fd集合，这也是开销很大的操作。<br> 4.调用select和poll内核返回的是句柄数组，要遍历整个句柄数组才能知道哪些事件是已经完成的。</p>
+<h4 id="Epoll的优势"><a href="#Epoll的优势" class="headerlink" title="Epoll的优势"></a>Epoll的优势</h4><p> 1.Epoll支持高并发并且没有socket连接数的限制，当面对很多的连接数的时候，epoll能够快速的返回活跃的连接的数据，而不用上select或poll一样<br> 遍历的维护所有连接。<br> 2.epoll的原理是向内核申请了一个简单文件系统，文件系统维护了epoll对象。而epoll对象里面维护了一颗红黑树结点的结构体，把fd的集合存进红黑树进行管理，然后最关键的地方在于当有fd准备好了，epoll对象里面有一个链表，把准备好的fd放进链表里，当调用epoll_wait时，直接从链表返回已经准备好的fd。</p>
 
       
     </div>
@@ -345,6 +372,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/epoll/" rel="tag"># epoll</a>
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+        </div>
+      
 
       
       
@@ -354,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/27/第一个博客/" rel="next" title="第一个博客">
-                <i class="fa fa-chevron-left"></i> 第一个博客
+              <a href="/2020/03/22/项目介绍/" rel="next" title="项目介绍">
+                <i class="fa fa-chevron-left"></i> 项目介绍
               </a>
             
           </div>
@@ -363,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/30/关于树的中序遍历应用及心得/" rel="prev" title="关于树的中序遍历应用及心得">
-                关于树的中序遍历应用及心得 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -418,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +519,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis为什么这么快？有几个原因："><span class="nav-number">1.</span> <span class="nav-text">Redis为什么这么快？有几个原因：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis处理客户端socket连接过程"><span class="nav-number">2.</span> <span class="nav-text">redis处理客户端socket连接过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO多路复用程序的底层：epoll"><span class="nav-number">3.</span> <span class="nav-text">IO多路复用程序的底层：epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#select和poll的缺点："><span class="nav-number">3.1.</span> <span class="nav-text">select和poll的缺点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Epoll的优势"><span class="nav-number">3.2.</span> <span class="nav-text">Epoll的优势</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
